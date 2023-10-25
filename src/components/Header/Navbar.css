@@ -1,0 +1,20 @@
+.navbar{
+    background-color: #1C2B35;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 150px;
+    padding-right: 150px;
+}
+
+.tab a{
+    text-decoration: none;
+    color: #fff;
+    margin-left: 30px;
+}
+
+.tab a:hover{
+    color: orange;
+    transition:.4s ease-out;
+}
