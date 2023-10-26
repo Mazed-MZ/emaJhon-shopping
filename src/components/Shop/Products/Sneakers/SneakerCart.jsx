@@ -4,6 +4,7 @@ import '../Product.css';
 export default function SneakerCart(props) {
 
     const { img, name, seller, category, id, price } = props.items;
+    const handleAddToCart = props.handleAddToCart;
 
     return (
         <div>
@@ -13,7 +14,7 @@ export default function SneakerCart(props) {
                     <h5 className="card-title">{name}</h5>
                     <p>{seller}</p>
                     <h3 className="card-text">${price}</h3>
-                    <a href="#" className="btn btn-outline-success card-btn">Add to Cart</a>
+                    <button className="btn btn-outline-success card-btn" onClick={() => handleAddToCart(props.items)}>Add to Cart</button>
                 </div>
             </div>
         </div>

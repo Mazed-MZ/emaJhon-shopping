@@ -6,16 +6,11 @@
     border-radius: 20px;
     background-image: linear-gradient(#1C2B35, #fff, #fff);
 }
-.product-container{
-    display: grid;
-    grid-template-columns: 4fr 4fr 4fr 4fr;
-    margin: 10px;
-}
 .product-cart{
     margin: 10px;
 }
 .product-cart:hover{
-    box-shadow: 2px 2px 2px 2px orange;
+    box-shadow: 5px 5px 20px gray;
     transition: .3s ease-in;
 }
 .card-btn{

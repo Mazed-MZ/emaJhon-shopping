@@ -13,12 +13,16 @@ export default function Sneaker() {
             .then(data => setSneaker(data))
     }, [])
 
+    const handleAddToCart = (sneaker) =>{
+        console.log('product added', sneaker)
+    }
+
     return (
         <div className='products'>
             <h2>Men's Sneakers Set</h2>
             <div className='product-container'>
                 {
-                    sneaker.map(items => <SneakerCart key={items.id} items={items}></SneakerCart>)
+                    sneaker.map(items => <SneakerCart key={items.id} items={items} handleAddToCart={handleAddToCart}></SneakerCart>)
                 }
             </div>
         </div>

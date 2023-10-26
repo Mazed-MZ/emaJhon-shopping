@@ -11,7 +11,7 @@ export default function HatCart(props) {
           <h5 className="card-title">{name}</h5>
           <p>{seller}</p>
           <h3 className="card-text">${price}</h3>
-          <a href="#" className="btn btn-outline-success card-btn">Add to Cart</a>
+          <button href="#" className="btn btn-outline-success card-btn">Add to Cart</button>
         </div>
       </div>
     </div>
