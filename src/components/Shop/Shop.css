@@ -16,4 +16,9 @@
     .order-section{
         display: none;
     }
+    .product-container{
+        display: grid;
+        grid-template-columns: 4fr;
+        width: 100%;
+    }
 }

@@ -1,6 +1,16 @@
+.order-btn{
+    width: 100%;
+    margin-top: 5%;
+    margin-left: 25%;
+}
 .order-cart{
-    background-color: rgb(235, 191, 109);
-    padding: 20px;
-    margin: 20px;
+    margin-top: 5%;
+    background-color: #1C2B35;
+    border: 8px solid orange;
+    padding: 10px;
     border-radius: 20px;
+}
+.order-cart h2{
+    color: #fff;
+    text-align: center;
 }
