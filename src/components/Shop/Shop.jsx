@@ -3,6 +3,7 @@ import Products from './Products/Products';
 import Order from './Order/Order';
 import './Shop.css';
 import { addToDb, getShoppingCart } from '../../utilities/fakedb';
+import toast from 'react-hot-toast';
 
 export default function Shop() {
 
@@ -31,7 +32,9 @@ export default function Shop() {
                 savedProduct.quantity = quantity;
                 // console.log(savedProduct);
                 //step-4 add the savedProduct to the savedCart
+                // savedProduct.stock = savedProduct.stock - quantity;
                 savedCart.push(savedProduct);
+                console.log(savedCart);
             }
             // console.log('added product', savedProduct);
 
@@ -46,12 +49,19 @@ export default function Shop() {
         //-->> Handle quantity from storage to cart <<--
         let newCart = [];
         const exists = cart.find(pd => pd.id === product.id)
-        if(!exists){
+        if (!exists) {
             product.quantity = 1;
-            newCart = [...cart, product]
+            newCart = [...cart, product];
         }
-        else{
+        else {
             exists.quantity = exists.quantity + 1;
+            exists.stock = product.stock - 1;
+            if (exists.stock === 0 ) {
+                exists.stock = 0;
+                toast('Sorry! Stock Limited', {
+                    icon: '😢',
+                });
+            }
             const remaining = cart.filter(pd => pd.id !== product.id)
             newCart = [...remaining, exists]
         }
