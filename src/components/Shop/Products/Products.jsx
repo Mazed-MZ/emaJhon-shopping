@@ -7,14 +7,18 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { orange } from '@mui/material/colors';
+import Box from '@mui/material/Box';
+import Rating from '@mui/material/Rating';
 
 
 export default function Products(props) {
 
-  const { img, name, seller, category, id, price } = props.items;
+  const { img, name, seller, category, id, price, ratings, stock } = props.items;
   const handleAddToCart = props.handleAddToCart;
 
   const color = orange['700'];
+
+  const [value, setValue] = React.useState(ratings);
 
   return (
     <div>
@@ -25,30 +29,40 @@ export default function Products(props) {
       <Backpack></Backpack>
       <Adidas></Adidas> */}
 
-      <Card sx={{ maxWidth: 345, m:1 }}>
+      <Card sx={{ maxWidth: 345, m: 1 }}>
         <CardMedia
           component="img"
           alt="green iguana"
           height="140"
           image={img}
         />
-          <CardContent>
-            <Typography gutterBottom variant="h5" component="div">
-              {name}
-            </Typography>
-            <Typography variant="body2" color="text.secondary">
-              Brand name: {seller}
-            </Typography>
-            <Typography variant="body2" color="text.secondary">
-              Category: {category}
-            </Typography>
-            <Typography variant="h4" color={color}>
-              ${price}
-            </Typography>
-          </CardContent>
-          <CardActions>
-            <Button variant="contained" color="success" onClick={() => handleAddToCart(props.items)}>Add to Cart</Button>
-          </CardActions>
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="div">
+            {name}
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            Brand name: {seller}
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            Category: {category}
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            In Stock: {stock}
+          </Typography>
+          <Typography variant="h4" color={color}>
+            ${price}
+          </Typography>
+          <Box
+            sx={{
+              '& > legend': { mt: 2 },
+            }}
+          >
+            <Rating name="read-only" value={value} readOnly />
+          </Box>
+        </CardContent>
+        <CardActions sx={{ maxWidth: 394, ml: 10 }}>
+          <Button variant="contained" color="success" onClick={() => handleAddToCart(props.items)}>Add to Cart</Button>
+        </CardActions>
       </Card>
 
 

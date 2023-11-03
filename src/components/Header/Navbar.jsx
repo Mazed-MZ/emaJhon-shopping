@@ -55,6 +55,7 @@ export default function Navbar() {
             <div className='tab'>
                 <Link to="/shop"><a>Shop</a></Link>
                 <Link to="/match"><a>Match Tickets</a></Link>
+                <Link to="/order"><a>Order</a></Link>
                 <Link to="/inventory"><a>Inventory</a></Link>
                 <a href="/login">Login</a>
             </div>

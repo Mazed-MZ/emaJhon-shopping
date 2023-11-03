@@ -11,6 +11,8 @@ import Inventory from './components/Inventory/Inventory.jsx';
 import Shop from './components/Shop/Shop.jsx';
 import Match from './components/MatchTickets/Match.jsx';
 import TeamDetails from './components/MatchTickets/TeamDetails.jsx';
+import OrderCart from './components/OrderCart/OrderCart.jsx';
+import cartProductsLoader from './CartLoader/CartLoader.js';
 
 const router = createBrowserRouter([
   {
@@ -30,6 +32,11 @@ const router = createBrowserRouter([
         path: "match",
         element: <Match></Match>,
         loader: () => fetch('https://www.thesportsdb.com/api/v1/json/3/search_all_teams.php?s=Soccer&c=England')
+      },
+      {
+        path: "order",
+        element: <OrderCart></OrderCart>,
+        loader: cartProductsLoader
       }
     ],
   },

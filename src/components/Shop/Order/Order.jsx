@@ -11,8 +11,10 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { Typography } from '@mui/material';
 import { deepOrange } from '@mui/material/colors';
+import Button from '@mui/material/Button';
+import DeleteIcon from '@mui/icons-material/Delete';
 
-export default function Order({ cart }) {
+export default function Order({ cart, handleClearCart }) {
 
   console.log(cart)
   // const cart = props.cart; --->> Option One <<---
@@ -74,55 +76,60 @@ export default function Order({ cart }) {
   // ];
 
   return (
-    <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 500 }} aria-label="simple table">
-        <TableHead>
-          <Typography variant='h4' color={color} spacing={2} sx={{ width: '100%' }}>Order Summary</Typography>
-          <StyledTableRow>
-            <StyledTableCell>Information</StyledTableCell>
-            <StyledTableCell align="right">Amounts (unite $)</StyledTableCell>
-          </StyledTableRow>
-        </TableHead>
-        <TableBody>
-          <StyledTableRow>
-            <StyledTableCell component="th" scope="row">
-              Selected Items
-            </StyledTableCell>
-            <StyledTableCell align="right">{cart.length}</StyledTableCell>
-          </StyledTableRow>
-          <StyledTableRow>
-            <StyledTableCell component="th" scope="row">
-              Total Quantity
-            </StyledTableCell>
-            <StyledTableCell align="right">{quantity}</StyledTableCell>
-          </StyledTableRow>
-          <StyledTableRow>
-            <StyledTableCell component="th" scope="row">
-              Total Price
-            </StyledTableCell>
-            <StyledTableCell align="right">${total}</StyledTableCell>
-          </StyledTableRow>
-          <StyledTableRow>
-            <StyledTableCell component="th" scope="row">
-              Shipping Charge
-            </StyledTableCell>
-            <StyledTableCell align="right">${totalShipping}</StyledTableCell>
-          </StyledTableRow>
-          <StyledTableRow>
-            <StyledTableCell component="th" scope="row">
-              VAT Added
-            </StyledTableCell>
-            <StyledTableCell align="right">${tax.toFixed(2)}</StyledTableCell>
-          </StyledTableRow>
-          <StyledTableRow>
-            <StyledTableCell component="th" scope="row">
-              Grand Total
-            </StyledTableCell>
-            <StyledTableCell align="right">${grandTotal.toFixed(2)}</StyledTableCell>
-          </StyledTableRow>
-        </TableBody>
-      </Table>
-    </TableContainer >
+    <div className='cart-container'>
+      <TableContainer component={Paper}>
+        <Table sx={{ minWidth: 500 }} aria-label="simple table">
+          <TableHead>
+            <Typography variant='h4' color={color} spacing={2} sx={{ width: '100%' }}>Order Summary</Typography>
+            <StyledTableRow>
+              <StyledTableCell>Information</StyledTableCell>
+              <StyledTableCell align="right">Amounts (unite $)</StyledTableCell>
+            </StyledTableRow>
+          </TableHead>
+          <TableBody>
+            <StyledTableRow>
+              <StyledTableCell component="th" scope="row">
+                Selected Items
+              </StyledTableCell>
+              <StyledTableCell align="right">{cart.length}</StyledTableCell>
+            </StyledTableRow>
+            <StyledTableRow>
+              <StyledTableCell component="th" scope="row">
+                Total Quantity
+              </StyledTableCell>
+              <StyledTableCell align="right">{quantity}</StyledTableCell>
+            </StyledTableRow>
+            <StyledTableRow>
+              <StyledTableCell component="th" scope="row">
+                Total Price
+              </StyledTableCell>
+              <StyledTableCell align="right">${total}</StyledTableCell>
+            </StyledTableRow>
+            <StyledTableRow>
+              <StyledTableCell component="th" scope="row">
+                Shipping Charge
+              </StyledTableCell>
+              <StyledTableCell align="right">${totalShipping}</StyledTableCell>
+            </StyledTableRow>
+            <StyledTableRow>
+              <StyledTableCell component="th" scope="row">
+                VAT Added
+              </StyledTableCell>
+              <StyledTableCell align="right">${tax.toFixed(2)}</StyledTableCell>
+            </StyledTableRow>
+            <StyledTableRow>
+              <StyledTableCell component="th" scope="row">
+                Grand Total
+              </StyledTableCell>
+              <StyledTableCell align="right">${grandTotal.toFixed(2)}</StyledTableCell>
+            </StyledTableRow>
+            <a href='/order'><Button variant="outlined" startIcon={<DeleteIcon />} onClick={handleClearCart}>
+              Clear Cart
+            </Button></a>
+          </TableBody>
+        </Table>
+      </TableContainer >
+    </div>
 
 
     // <div className='order-cart'>
